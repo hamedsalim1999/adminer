@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: adminer 
+spec:
+  selector:
+    matchLabels:
+      app: adminer 
+  template:
+    metadata:
+      labels:
+        app: adminer 
+    spec:
+      containers:
+        - image: adminer
+          name: adminer 
+          imagePullPolicy: Always
+          resources:
+            limits:
+              memory: 1024M
+            requests:
+              memory: 1024M
+          ports:
+            - containerPort: 8080
